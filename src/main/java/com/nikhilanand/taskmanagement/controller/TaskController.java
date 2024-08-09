@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 @RestController
 @RequestMapping(GlobalVariables.TASK_APP_API_ENDPOINT)
@@ -17,6 +18,7 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<AddTaskResponse> createTask(@RequestBody AddTaskRequest addTaskRequest) {
 
@@ -29,6 +31,7 @@ public class TaskController {
     }
 
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/{taskId}")
     public ResponseEntity<TaskResponse> getTaskById(@PathVariable Long taskId) {
 
