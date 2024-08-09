@@ -5,7 +5,7 @@
 
 ## **Main branch for Localhost**
 
-## **Master branch for ADMIN ACESS
+## **Master branch for ADMIN ACESS**
 
 ```base
 git clone https://github.com/Nikhilananddev/TaskApp
